@@ -31,10 +31,10 @@ type DomainGroup = "sso" | "studios" | "main";
 const SSO_HOSTS = ["sso.gouv.localhost", "sso.gouv.lan"];
 const STUDIOS_HOSTS = ["studios.gouv.localhost", "studios.gouv.lan"];
 const MAIN_HOSTS = [
-  "info.gouv.localhost",
-  "info.gouv.lan",
-  "info.gouv.aor",
-  "www.info.gouv.aor",
+  "service-public.gouv.localhost",
+  "service-public.gouv.lan",
+  "service-public.gouv.aor",
+  "www.service-public.gouv.aor",
 ];
 
 const AUTH_PATHS = [
@@ -68,7 +68,7 @@ function getDomainForGroup(group: DomainGroup, currentUrl: URL): string {
       case "studios":
         return `${protocol}//studios.gouv.localhost`;
       case "main":
-        return `${protocol}//info.gouv.localhost`;
+        return `${protocol}//service-public.gouv.localhost`;
     }
   }
 

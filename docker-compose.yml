@@ -34,7 +34,7 @@ services:
       worker:
         condition: service_started
     networks:
-      - infrastructure-gouv
+      - service-public
 
   # ─── API / worker (Go) ──────────────────────────────────────────────────────
   # Dev:  WORKER_COMMAND=air    → hot-reload via Air (:8080)

@@ -1,6 +1,5 @@
 /**
- * URL structure of the public portal of the Ministry of Infrastructure and
- * Digital Affairs of the Republic of Astoria.
+ * URL structure of the public portal of the Republic of Astoria.
  *
  * Hrefs are locale-agnostic pathnames: the next-intl Link (registered as the
  * ADS link renderer) prefixes the active locale automatically. Labels are
@@ -9,10 +8,28 @@
  *
  * Architecture of the navigation:
  *
- *   primaryNavigation  → the seven institutional entries of the ministry. Each
+ *   primaryNavigation  → the seven user-centric entries of the portal. Each
  *                        entry opens a mega-menu panel structured in four
  *                        themes of four links:
  *                            7 entrées × 4 thèmes × 4 liens
+ *
+ * The information architecture is deliberately *not* organised around the
+ * internal structure of the ministries: a visitor arrives with an
+ * administrative need (a procedure to run, a service to find, a right to
+ * understand) without knowing which ministry is responsible. The portal is
+ * organised around what people look for:
+ *
+ *   Démarches             → ce que je dois faire
+ *   Droits & obligations  → ce que je dois comprendre
+ *   Services publics      → qui fournit le service
+ *   Vie quotidienne       → les situations de la vie courante
+ *   Entreprises           → les entreprises
+ *   Organisations         → les associations, fondations et institutions
+ *   International         → les services pour / des personnes à l'étranger
+ *
+ * `Rechercher` and `Se connecter` are transversal functions of the platform
+ * (search, MyGouv identity), not categories of the catalogue: they live in
+ * the header, outside the primary navigation.
  *
  * Everything is configuration-driven: the header and the footer derive their
  * markup from this array, so adding a domain/theme/link later never requires
@@ -20,15 +37,15 @@
  */
 export const PORTAL_HOME = "/";
 
-/** The seven institutional entries — both `nav.primary` and `footer.columns` keys. */
+/** The seven user-centric entries — both `nav.primary` and `footer.columns` keys. */
 export type PrimaryNavKey =
-  | "infrastructures"
-  | "logement"
-  | "energie"
-  | "mobilite"
-  | "numerique"
-  | "territoires"
-  | "ministere";
+  | "demarches"
+  | "droitsObligations"
+  | "servicesPublics"
+  | "vieQuotidienne"
+  | "entreprises"
+  | "organisations"
+  | "international";
 
 /** A destination inside a mega-menu panel; its label is a `nav.panel` message key. */
 export type NavigationLink = {
@@ -38,7 +55,7 @@ export type NavigationLink = {
 
 /**
  * A theme of a navigation section. In the mega-menu panel it heads one of the
- * four columns (`labelKey` → `nav.panel.<domain>.<theme>.title`); in the
+ * four columns (`labelKey` → `nav.panel.<section>.<theme>.title`); in the
  * footer it becomes a destination of the domain column. It carries the four
  * destinations of the theme.
  */
@@ -50,17 +67,11 @@ export type NavigationItem = NavigationLink & {
 /**
  * One top-level entry of the Government Header navigation.
  *
- * Navigation principle (info.gouv.fr-inspired, adapted to Astoria): the header
- * is organised around the institutional perimeter of the ministry — the six
- * policy domains it is responsible for across the whole lifecycle of
- * infrastructure, plus the ministry itself:
- *
- *   Concevoir → Planifier → Construire → Exploiter → Maintenir →
- *   Moderniser → Résilient.
- *
- * Every domain opens a mega-menu panel composed of
- *  - a leader band: the domain name, a one-line description and the main
- *    action of the section (“Tout sur les infrastructures”, …),
+ * Navigation principle: the header is organised around the needs and usages
+ * of the visitors, not around the internal structure of the ministries. Each
+ * entry opens a mega-menu panel composed of
+ *  - a leader band: the category name, a one-line description and the main
+ *    action of the section (“Toutes les démarches”, …),
  *  - four themes, each headed by its title and followed by its four
  *    destinations.
  *
@@ -90,13 +101,13 @@ export type FooterColumn = {
 };
 
 export const sectionPaths = {
-  infrastructures: "/infrastructures",
-  logement: "/logement",
-  energie: "/energie",
-  mobilite: "/mobilite",
-  numerique: "/numerique",
-  territoires: "/territoires",
-  ministere: "/ministere",
+  demarches: "/demarches",
+  droitsObligations: "/droits-obligations",
+  servicesPublics: "/services-publics",
+  vieQuotidienne: "/vie-quotidienne",
+  entreprises: "/entreprises",
+  organisations: "/organisations",
+  international: "/international",
 } as const;
 
 export const legalPaths = {
@@ -116,24 +127,27 @@ export const pageAnchors = {
 } as const;
 
 /**
- * Main navigation of the Government Header of the Ministry of Infrastructure
- * and Digital Affairs of the Republic of Astoria — the permanent information
- * architecture of the portal, organised in seven entries built around the
- * institutional perimeter of the ministry:
+ * Main navigation of the Government Header of the Service Public portal of
+ * the Republic of Astoria — the permanent information architecture of the
+ * platform, organised in seven user-centric entries:
  *
- *   Infrastructures  → Construire : normes, réseaux, patrimoine, grands projets
- *   Logement         → Loger    : habitat, construction, rénovation, logement public
- *   Énergie          → Alimenter : électricité, réseaux, production, transition
- *   Mobilité         → Relier   : routier, ferroviaire, transports, aérien & maritime
- *   Numérique        → Numériser : connectivité, infrastructures, services, données
- *   Territoires      → Aménager : aménagement, eau, environnement, résilience
- *   Le Ministère     → Incarner : missions, administration, politiques, international
+ *   Démarches             → faire      : toutes les démarches, en ligne, formulaires, rendez-vous
+ *   Droits & obligations  → comprendre : droits, obligations, règles et procédures, recours
+ *   Services publics      → trouver    : administrations, services, établissements, services numériques
+ *   Vie quotidienne       → vivre      : famille, travail et études, logement et mobilité, santé
+ *   Entreprises           → entreprendre : création, fiscalité, employeurs, aides
+ *   Organisations         → s'engager  : associations, fondations, institutions, agréments
+ *   International         → à l'étranger : immigration, Astoriens à l'étranger, consulats, diplomaties
  *
- * Each domain opens a mega-menu panel with a leader band and four themes — each
+ * Each entry opens a mega-menu panel with a leader band and four themes — each
  * theme headed by its title and followed by its four destinations. The panel is
  * not the sitemap of the portal; it exposes the destinations that matter to the
  * visitor journey. The structure is configuration-driven: adding a section only
  * means adding an entry here (and the matching messages).
+ *
+ * The portal stays a *point of access*: the specialised portals (MyGouv for
+ * identity, diplomatie.gouv.aor for foreign policy and diplomatic
+ * communication) remain responsible for their own features.
  *
  * Hrefs follow the URL plan of the portal; several point to pages being
  * published and will resolve as soon as those sections ship.
@@ -141,102 +155,102 @@ export const pageAnchors = {
 export const primaryNavigation: ReadonlyArray<NavigationSection> = [
   {
     type: "megaMenu",
-    labelKey: "infrastructures",
-    href: sectionPaths.infrastructures,
+    labelKey: "demarches",
+    href: sectionPaths.demarches,
     leader: {
-      titleKey: "infrastructures.title",
-      paragraphKey: "infrastructures.text",
+      titleKey: "demarches.title",
+      paragraphKey: "demarches.text",
       link: {
-        labelKey: "infrastructures.allLink",
-        href: sectionPaths.infrastructures,
+        labelKey: "demarches.allLink",
+        href: sectionPaths.demarches,
       },
     },
     primaryItems: [
       {
-        labelKey: "infrastructures.construction.title",
-        href: "/infrastructures/construction",
+        labelKey: "demarches.toutesLesDemarches.title",
+        href: "/demarches/toutes-les-demarches",
         links: [
           {
-            labelKey: "infrastructures.construction.normes",
-            href: "/infrastructures/construction/normes-de-construction",
+            labelKey: "demarches.toutesLesDemarches.renouvelerCarteIdentite",
+            href: "/demarches/toutes-les-demarches/renouveler-carte-identite",
           },
           {
-            labelKey: "infrastructures.construction.marches",
-            href: "/infrastructures/construction/marches-publics",
+            labelKey: "demarches.toutesLesDemarches.changerAdresse",
+            href: "/demarches/toutes-les-demarches/changement-adresse",
           },
           {
-            labelKey: "infrastructures.construction.constructionPublique",
-            href: "/infrastructures/construction/construction-publique",
+            labelKey: "demarches.toutesLesDemarches.actesEtatCivil",
+            href: "/demarches/toutes-les-demarches/actes-etat-civil",
           },
           {
-            labelKey: "infrastructures.construction.securite",
-            href: "/infrastructures/construction/securite-des-infrastructures",
+            labelKey: "demarches.toutesLesDemarches.immatriculerVehicule",
+            href: "/demarches/toutes-les-demarches/immatriculer-vehicule",
           },
         ],
       },
       {
-        labelKey: "infrastructures.reseaux.title",
-        href: "/infrastructures/reseaux",
+        labelKey: "demarches.enLigne.title",
+        href: "/demarches/en-ligne",
         links: [
           {
-            labelKey: "infrastructures.reseaux.reseauxNationaux",
-            href: "/infrastructures/reseaux/reseaux-nationaux",
+            labelKey: "demarches.enLigne.effectuerEnLigne",
+            href: "/demarches/en-ligne/effectuer-une-demarche",
           },
           {
-            labelKey: "infrastructures.reseaux.eau",
-            href: "/infrastructures/reseaux/eau",
+            labelKey: "demarches.enLigne.creerCompteMyGouv",
+            href: "/demarches/en-ligne/creer-compte-mygouv",
           },
           {
-            labelKey: "infrastructures.reseaux.assainissement",
-            href: "/infrastructures/reseaux/assainissement",
+            labelKey: "demarches.enLigne.suivreDemande",
+            href: "/demarches/en-ligne/suivre-une-demande",
           },
           {
-            labelKey: "infrastructures.reseaux.reseauxEnergetiques",
-            href: "/infrastructures/reseaux/reseaux-energetiques",
+            labelKey: "demarches.enLigne.payerEnLigne",
+            href: "/demarches/en-ligne/payer-en-ligne",
           },
         ],
       },
       {
-        labelKey: "infrastructures.patrimoine.title",
-        href: "/infrastructures/patrimoine",
+        labelKey: "demarches.formulaires.title",
+        href: "/demarches/formulaires",
         links: [
           {
-            labelKey: "infrastructures.patrimoine.patrimoinePublic",
-            href: "/infrastructures/patrimoine/patrimoine-public",
+            labelKey: "demarches.formulaires.rechercherFormulaire",
+            href: "/demarches/formulaires/rechercher-un-formulaire",
           },
           {
-            labelKey: "infrastructures.patrimoine.batimentsPublics",
-            href: "/infrastructures/patrimoine/batiments-publics",
+            labelKey: "demarches.formulaires.certificatsAttestations",
+            href: "/demarches/formulaires/certificats-attestations",
           },
           {
-            labelKey: "infrastructures.patrimoine.entretien",
-            href: "/infrastructures/patrimoine/entretien",
+            labelKey: "demarches.formulaires.modelesCourriers",
+            href: "/demarches/formulaires/modeles-de-courriers",
           },
           {
-            labelKey: "infrastructures.patrimoine.modernisation",
-            href: "/infrastructures/patrimoine/modernisation",
+            labelKey: "demarches.formulaires.piecesJustificatives",
+            href: "/demarches/formulaires/pieces-justificatives",
           },
         ],
       },
       {
-        labelKey: "infrastructures.grandsProjets.title",
-        href: "/infrastructures/grands-projets",
+        labelKey: "demarches.rendezVous.title",
+        href: "/demarches/rendez-vous",
         links: [
           {
-            labelKey: "infrastructures.grandsProjets.projetsNationaux",
-            href: "/infrastructures/grands-projets/projets-nationaux",
+            labelKey: "demarches.rendezVous.prendreRendezVous",
+            href: "/demarches/rendez-vous/prendre-rendez-vous",
           },
           {
-            labelKey: "infrastructures.grandsProjets.projetsEnCours",
-            href: "/infrastructures/grands-projets/projets-en-cours",
+            labelKey: "demarches.rendezVous.annulerRendezVous",
+            href: "/demarches/rendez-vous/annuler-rendez-vous",
           },
           {
-            labelKey: "infrastructures.grandsProjets.projetsRealises",
-            href: "/infrastructures/grands-projets/projets-realises",
+            labelKey: "demarches.rendezVous.prefectures",
+            href: "/demarches/rendez-vous/prefectures",
           },
           {
-            labelKey: "infrastructures.grandsProjets.appelsAProjets",
-            href: "/infrastructures/grands-projets/appels-a-projets",
+            labelKey: "demarches.rendezVous.accueilServicesPublics",
+            href: "/demarches/rendez-vous/accueil-services-publics",
           },
         ],
       },
@@ -244,102 +258,102 @@ export const primaryNavigation: ReadonlyArray<NavigationSection> = [
   },
   {
     type: "megaMenu",
-    labelKey: "logement",
-    href: sectionPaths.logement,
+    labelKey: "droitsObligations",
+    href: sectionPaths.droitsObligations,
     leader: {
-      titleKey: "logement.title",
-      paragraphKey: "logement.text",
+      titleKey: "droitsObligations.title",
+      paragraphKey: "droitsObligations.text",
       link: {
-        labelKey: "logement.allLink",
-        href: sectionPaths.logement,
+        labelKey: "droitsObligations.allLink",
+        href: sectionPaths.droitsObligations,
       },
     },
     primaryItems: [
       {
-        labelKey: "logement.habitat.title",
-        href: "/logement/habitat",
+        labelKey: "droitsObligations.droits.title",
+        href: "/droits-obligations/droits",
         links: [
           {
-            labelKey: "logement.habitat.politiqueLogement",
-            href: "/logement/habitat/politique-du-logement",
+            labelKey: "droitsObligations.droits.droitsUsagers",
+            href: "/droits-obligations/droits/droits-des-usagers",
           },
           {
-            labelKey: "logement.habitat.accession",
-            href: "/logement/habitat/accession-au-logement",
+            labelKey: "droitsObligations.droits.protectionDonnees",
+            href: "/droits-obligations/droits/protection-donnees-personnelles",
           },
           {
-            labelKey: "logement.habitat.collectif",
-            href: "/logement/habitat/habitat-collectif",
+            labelKey: "droitsObligations.droits.accesDocumentsAdministratifs",
+            href: "/droits-obligations/droits/acces-documents-administratifs",
           },
           {
-            labelKey: "logement.habitat.individuel",
-            href: "/logement/habitat/habitat-individuel",
+            labelKey: "droitsObligations.droits.aidesPrestations",
+            href: "/droits-obligations/droits/aides-et-prestations",
           },
         ],
       },
       {
-        labelKey: "logement.construction.title",
-        href: "/logement/construction",
+        labelKey: "droitsObligations.obligations.title",
+        href: "/droits-obligations/obligations",
         links: [
           {
-            labelKey: "logement.construction.constructionNeuve",
-            href: "/logement/construction/construction-neuve",
+            labelKey: "droitsObligations.obligations.obligationsUsagers",
+            href: "/droits-obligations/obligations/obligations-des-usagers",
           },
           {
-            labelKey: "logement.construction.normesHabitat",
-            href: "/logement/construction/normes-de-l-habitat",
+            labelKey: "droitsObligations.obligations.declarationsObligatoires",
+            href: "/droits-obligations/obligations/declarations-obligatoires",
           },
           {
-            labelKey: "logement.construction.urbanismeResidentiel",
-            href: "/logement/construction/urbanisme-residentiel",
+            labelKey: "droitsObligations.obligations.echeancesAdministratives",
+            href: "/droits-obligations/obligations/echeances-administratives",
           },
           {
-            labelKey: "logement.construction.promoteurs",
-            href: "/logement/construction/promoteurs-et-operateurs",
+            labelKey: "droitsObligations.obligations.sanctions",
+            href: "/droits-obligations/obligations/sanctions",
           },
         ],
       },
       {
-        labelKey: "logement.renovation.title",
-        href: "/logement/renovation",
+        labelKey: "droitsObligations.reglesProcedures.title",
+        href: "/droits-obligations/regles-et-procedures",
         links: [
           {
-            labelKey: "logement.renovation.renovationEnergetique",
-            href: "/logement/renovation/renovation-energetique",
+            labelKey: "droitsObligations.reglesProcedures.reglesApplicables",
+            href: "/droits-obligations/regles-et-procedures/regles-applicables",
           },
           {
-            labelKey: "logement.renovation.rehabilitation",
-            href: "/logement/renovation/rehabilitation",
+            labelKey: "droitsObligations.reglesProcedures.proceduresAdministratives",
+            href: "/droits-obligations/regles-et-procedures/procedures-administratives",
           },
           {
-            labelKey: "logement.renovation.adaptationLogements",
-            href: "/logement/renovation/adaptation-des-logements",
+            labelKey: "droitsObligations.reglesProcedures.delaisReponse",
+            href: "/droits-obligations/regles-et-procedures/delais-de-reponse",
           },
           {
-            labelKey: "logement.renovation.performanceBatiments",
-            href: "/logement/renovation/performance-des-batiments",
+            labelKey: "droitsObligations.reglesProcedures.voiesSaisine",
+            href: "/droits-obligations/regles-et-procedures/voies-de-saisine",
           },
         ],
       },
       {
-        labelKey: "logement.logementPublic.title",
-        href: "/logement/logement-public",
+        labelKey: "droitsObligations.recoursReclamations.title",
+        href: "/droits-obligations/recours-et-reclamations",
         links: [
           {
-            labelKey: "logement.logementPublic.logementSocial",
-            href: "/logement/logement-public/logement-social",
+            labelKey: "droitsObligations.recoursReclamations.contesterDecision",
+            href: "/droits-obligations/recours-et-reclamations/contester-une-decision",
           },
           {
-            labelKey: "logement.logementPublic.parcPublic",
-            href: "/logement/logement-public/parc-public",
+            labelKey: "droitsObligations.recoursReclamations.defenseurDesDroits",
+            href: "/droits-obligations/recours-et-reclamations/defenseur-des-droits",
           },
           {
-            labelKey: "logement.logementPublic.attribution",
-            href: "/logement/logement-public/attribution",
+            labelKey: "droitsObligations.recoursReclamations.deposerReclamation",
+            href: "/droits-obligations/recours-et-reclamations/deposer-une-reclamation",
           },
           {
-            labelKey: "logement.logementPublic.operateursPublics",
-            href: "/logement/logement-public/operateurs-publics",
+            labelKey: "droitsObligations.recoursReclamations.mediation",
+            href: "/droits-obligations/recours-et-reclamations/mediation",
           },
         ],
       },
@@ -347,102 +361,102 @@ export const primaryNavigation: ReadonlyArray<NavigationSection> = [
   },
   {
     type: "megaMenu",
-    labelKey: "energie",
-    href: sectionPaths.energie,
+    labelKey: "servicesPublics",
+    href: sectionPaths.servicesPublics,
     leader: {
-      titleKey: "energie.title",
-      paragraphKey: "energie.text",
+      titleKey: "servicesPublics.title",
+      paragraphKey: "servicesPublics.text",
       link: {
-        labelKey: "energie.allLink",
-        href: sectionPaths.energie,
+        labelKey: "servicesPublics.allLink",
+        href: sectionPaths.servicesPublics,
       },
     },
     primaryItems: [
       {
-        labelKey: "energie.electricite.title",
-        href: "/energie/electricite",
+        labelKey: "servicesPublics.administrations.title",
+        href: "/services-publics/administrations",
         links: [
           {
-            labelKey: "energie.electricite.productionElectrique",
-            href: "/energie/electricite/production-electrique",
+            labelKey: "servicesPublics.administrations.administrationsCentrales",
+            href: "/services-publics/administrations/administrations-centrales",
           },
           {
-            labelKey: "energie.electricite.reseauElectrique",
-            href: "/energie/electricite/reseau-electrique",
+            labelKey: "servicesPublics.administrations.servicesDeconcentres",
+            href: "/services-publics/administrations/services-deconcentres",
           },
           {
-            labelKey: "energie.electricite.distribution",
-            href: "/energie/electricite/distribution",
+            labelKey: "servicesPublics.administrations.collectivitesTerritoriales",
+            href: "/services-publics/administrations/collectivites-territoriales",
           },
           {
-            labelKey: "energie.electricite.securiteEnergetique",
-            href: "/energie/electricite/securite-energetique",
+            labelKey: "servicesPublics.administrations.autoritesIndependantes",
+            href: "/services-publics/administrations/autorites-independantes",
           },
         ],
       },
       {
-        labelKey: "energie.reseaux.title",
-        href: "/energie/reseaux",
+        labelKey: "servicesPublics.services.title",
+        href: "/services-publics/services",
         links: [
           {
-            labelKey: "energie.reseaux.reseauxNationaux",
-            href: "/energie/reseaux/reseaux-nationaux",
+            labelKey: "servicesPublics.services.servicesProximite",
+            href: "/services-publics/services/services-de-proximite",
           },
           {
-            labelKey: "energie.reseaux.interconnexions",
-            href: "/energie/reseaux/interconnexions",
+            labelKey: "servicesPublics.services.guichetsAccueil",
+            href: "/services-publics/services/guichets-et-accueils",
           },
           {
-            labelKey: "energie.reseaux.stockage",
-            href: "/energie/reseaux/stockage",
+            labelKey: "servicesPublics.services.horairesCoordonnees",
+            href: "/services-publics/services/horaires-et-coordonnees",
           },
           {
-            labelKey: "energie.reseaux.infrastructuresCritiques",
-            href: "/energie/reseaux/infrastructures-critiques",
+            labelKey: "servicesPublics.services.trouverService",
+            href: "/services-publics/services/trouver-un-service",
           },
         ],
       },
       {
-        labelKey: "energie.production.title",
-        href: "/energie/production",
+        labelKey: "servicesPublics.etablissementsPublics.title",
+        href: "/services-publics/etablissements-publics",
         links: [
           {
-            labelKey: "energie.production.nucleaire",
-            href: "/energie/production/nucleaire",
+            labelKey: "servicesPublics.etablissementsPublics.etablissementsNationaux",
+            href: "/services-publics/etablissements-publics/etablissements-nationaux",
           },
           {
-            labelKey: "energie.production.renouvelables",
-            href: "/energie/production/renouvelables",
+            labelKey: "servicesPublics.etablissementsPublics.operateursEtat",
+            href: "/services-publics/etablissements-publics/operateurs-de-l-etat",
           },
           {
-            labelKey: "energie.production.hydraulique",
-            href: "/energie/production/hydraulique",
+            labelKey: "servicesPublics.etablissementsPublics.education",
+            href: "/services-publics/etablissements-publics/education",
           },
           {
-            labelKey: "energie.production.autresSources",
-            href: "/energie/production/autres-sources",
+            labelKey: "servicesPublics.etablissementsPublics.sante",
+            href: "/services-publics/etablissements-publics/sante",
           },
         ],
       },
       {
-        labelKey: "energie.transition.title",
-        href: "/energie/transition",
+        labelKey: "servicesPublics.servicesNumeriques.title",
+        href: "/services-publics/services-numeriques",
         links: [
           {
-            labelKey: "energie.transition.transitionEnergetique",
-            href: "/energie/transition/transition-energetique",
+            labelKey: "servicesPublics.servicesNumeriques.portailsTeleservices",
+            href: "/services-publics/services-numeriques/portails-et-teleservices",
           },
           {
-            labelKey: "energie.transition.decarbonation",
-            href: "/energie/transition/decarbonation",
+            labelKey: "servicesPublics.servicesNumeriques.identiteNumerique",
+            href: "/services-publics/services-numeriques/identite-numerique",
           },
           {
-            labelKey: "energie.transition.efficaciteEnergetique",
-            href: "/energie/transition/efficacite-energetique",
+            labelKey: "servicesPublics.servicesNumeriques.applicationsOfficielles",
+            href: "/services-publics/services-numeriques/applications-officielles",
           },
           {
-            labelKey: "energie.transition.innovation",
-            href: "/energie/transition/innovation",
+            labelKey: "servicesPublics.servicesNumeriques.donneesOuvertes",
+            href: "/services-publics/services-numeriques/donnees-ouvertes",
           },
         ],
       },
@@ -450,102 +464,102 @@ export const primaryNavigation: ReadonlyArray<NavigationSection> = [
   },
   {
     type: "megaMenu",
-    labelKey: "mobilite",
-    href: sectionPaths.mobilite,
+    labelKey: "vieQuotidienne",
+    href: sectionPaths.vieQuotidienne,
     leader: {
-      titleKey: "mobilite.title",
-      paragraphKey: "mobilite.text",
+      titleKey: "vieQuotidienne.title",
+      paragraphKey: "vieQuotidienne.text",
       link: {
-        labelKey: "mobilite.allLink",
-        href: sectionPaths.mobilite,
+        labelKey: "vieQuotidienne.allLink",
+        href: sectionPaths.vieQuotidienne,
       },
     },
     primaryItems: [
       {
-        labelKey: "mobilite.routier.title",
-        href: "/mobilite/routier",
+        labelKey: "vieQuotidienne.familleEtatCivil.title",
+        href: "/vie-quotidienne/famille-et-etat-civil",
         links: [
           {
-            labelKey: "mobilite.routier.routesNationales",
-            href: "/mobilite/routier/routes-nationales",
+            labelKey: "vieQuotidienne.familleEtatCivil.mariagePacs",
+            href: "/vie-quotidienne/famille-et-etat-civil/mariage-pacs",
           },
           {
-            labelKey: "mobilite.routier.autoroutes",
-            href: "/mobilite/routier/autoroutes",
+            labelKey: "vieQuotidienne.familleEtatCivil.naissance",
+            href: "/vie-quotidienne/famille-et-etat-civil/naissance",
           },
           {
-            labelKey: "mobilite.routier.ouvragesArt",
-            href: "/mobilite/routier/ouvrages-d-art",
+            labelKey: "vieQuotidienne.familleEtatCivil.etatCivil",
+            href: "/vie-quotidienne/famille-et-etat-civil/etat-civil",
           },
           {
-            labelKey: "mobilite.routier.entretienRoutier",
-            href: "/mobilite/routier/entretien-routier",
+            labelKey: "vieQuotidienne.familleEtatCivil.succession",
+            href: "/vie-quotidienne/famille-et-etat-civil/successions",
           },
         ],
       },
       {
-        labelKey: "mobilite.ferroviaire.title",
-        href: "/mobilite/ferroviaire",
+        labelKey: "vieQuotidienne.travailEtudes.title",
+        href: "/vie-quotidienne/travail-et-etudes",
         links: [
           {
-            labelKey: "mobilite.ferroviaire.reseauFerroviaire",
-            href: "/mobilite/ferroviaire/reseau-ferroviaire",
+            labelKey: "vieQuotidienne.travailEtudes.emploi",
+            href: "/vie-quotidienne/travail-et-etudes/emploi",
           },
           {
-            labelKey: "mobilite.ferroviaire.gares",
-            href: "/mobilite/ferroviaire/gares",
+            labelKey: "vieQuotidienne.travailEtudes.formationProfessionnelle",
+            href: "/vie-quotidienne/travail-et-etudes/formation-professionnelle",
           },
           {
-            labelKey: "mobilite.ferroviaire.transportFerroviaire",
-            href: "/mobilite/ferroviaire/transport-ferroviaire",
+            labelKey: "vieQuotidienne.travailEtudes.scolarite",
+            href: "/vie-quotidienne/travail-et-etudes/scolarite",
           },
           {
-            labelKey: "mobilite.ferroviaire.modernisation",
-            href: "/mobilite/ferroviaire/modernisation",
+            labelKey: "vieQuotidienne.travailEtudes.enseignementSuperieur",
+            href: "/vie-quotidienne/travail-et-etudes/enseignement-superieur",
           },
         ],
       },
       {
-        labelKey: "mobilite.transports.title",
-        href: "/mobilite/transports",
+        labelKey: "vieQuotidienne.logementMobilite.title",
+        href: "/vie-quotidienne/logement-et-mobilite",
         links: [
           {
-            labelKey: "mobilite.transports.transportsPublics",
-            href: "/mobilite/transports/transports-publics",
+            labelKey: "vieQuotidienne.logementMobilite.aidesLogement",
+            href: "/vie-quotidienne/logement-et-mobilite/aides-au-logement",
           },
           {
-            labelKey: "mobilite.transports.mobiliteUrbaine",
-            href: "/mobilite/transports/mobilite-urbaine",
+            labelKey: "vieQuotidienne.logementMobilite.locationPropriete",
+            href: "/vie-quotidienne/logement-et-mobilite/location-et-propriete",
           },
           {
-            labelKey: "mobilite.transports.mobiliteRegionale",
-            href: "/mobilite/transports/mobilite-regionale",
+            labelKey: "vieQuotidienne.logementMobilite.transportsDeplacements",
+            href: "/vie-quotidienne/logement-et-mobilite/transports-et-deplacements",
           },
           {
-            labelKey: "mobilite.transports.intermodalite",
-            href: "/mobilite/transports/intermodalite",
+            labelKey: "vieQuotidienne.logementMobilite.permisConduire",
+            href: "/vie-quotidienne/logement-et-mobilite/permis-de-conduire",
           },
         ],
       },
       {
-        labelKey: "mobilite.aerienMaritime.title",
-        href: "/mobilite/aerien-maritime",
+        labelKey: "vieQuotidienne.santeSolidarite.title",
+        href: "/vie-quotidienne/sante-et-solidarite",
         links: [
           {
-            labelKey: "mobilite.aerienMaritime.aeroports",
-            href: "/mobilite/aerien-maritime/aeroports",
+            labelKey: "vieQuotidienne.santeSolidarite.santeRemboursements",
+            href: "/vie-quotidienne/sante-et-solidarite/sante-et-remboursements",
           },
           {
-            labelKey: "mobilite.aerienMaritime.ports",
-            href: "/mobilite/aerien-maritime/ports",
+            labelKey: "vieQuotidienne.santeSolidarite.handicap",
+            href: "/vie-quotidienne/sante-et-solidarite/handicap",
           },
           {
-            labelKey: "mobilite.aerienMaritime.transportMaritime",
-            href: "/mobilite/aerien-maritime/transport-maritime",
+            labelKey: "vieQuotidienne.santeSolidarite.personnesAgees",
+            href: "/vie-quotidienne/sante-et-solidarite/personnes-agees",
           },
           {
-            labelKey: "mobilite.aerienMaritime.transportAerien",
-            href: "/mobilite/aerien-maritime/transport-aerien",
+            labelKey: "vieQuotidienne.santeSolidarite.solidarite",
+            href: "/vie-quotidienne/sante-et-solidarite/solidarite",
           },
         ],
       },
@@ -553,102 +567,102 @@ export const primaryNavigation: ReadonlyArray<NavigationSection> = [
   },
   {
     type: "megaMenu",
-    labelKey: "numerique",
-    href: sectionPaths.numerique,
+    labelKey: "entreprises",
+    href: sectionPaths.entreprises,
     leader: {
-      titleKey: "numerique.title",
-      paragraphKey: "numerique.text",
+      titleKey: "entreprises.title",
+      paragraphKey: "entreprises.text",
       link: {
-        labelKey: "numerique.allLink",
-        href: sectionPaths.numerique,
+        labelKey: "entreprises.allLink",
+        href: sectionPaths.entreprises,
       },
     },
     primaryItems: [
       {
-        labelKey: "numerique.connectivite.title",
-        href: "/numerique/connectivite",
+        labelKey: "entreprises.creationGestion.title",
+        href: "/entreprises/creation-et-gestion",
         links: [
           {
-            labelKey: "numerique.connectivite.tresHautDebit",
-            href: "/numerique/connectivite/tres-haut-debit",
+            labelKey: "entreprises.creationGestion.creerEntreprise",
+            href: "/entreprises/creation-et-gestion/creer-une-entreprise",
           },
           {
-            labelKey: "numerique.connectivite.fibre",
-            href: "/numerique/connectivite/fibre",
+            labelKey: "entreprises.creationGestion.formesJuridiques",
+            href: "/entreprises/creation-et-gestion/formes-juridiques",
           },
           {
-            labelKey: "numerique.connectivite.reseauxMobiles",
-            href: "/numerique/connectivite/reseaux-mobiles",
+            labelKey: "entreprises.creationGestion.formalitesImmatriculation",
+            href: "/entreprises/creation-et-gestion/formalites-et-immatriculation",
           },
           {
-            labelKey: "numerique.connectivite.couvertureTerritoriale",
-            href: "/numerique/connectivite/couverture-territoriale",
+            labelKey: "entreprises.creationGestion.cessationActivite",
+            href: "/entreprises/creation-et-gestion/cessation-d-activite",
           },
         ],
       },
       {
-        labelKey: "numerique.infrastructuresNumeriques.title",
-        href: "/numerique/infrastructures-numeriques",
+        labelKey: "entreprises.fiscaliteComptabilite.title",
+        href: "/entreprises/fiscalite-et-comptabilite",
         links: [
           {
-            labelKey: "numerique.infrastructuresNumeriques.dataCenters",
-            href: "/numerique/infrastructures-numeriques/data-centers",
+            labelKey: "entreprises.fiscaliteComptabilite.impotsEntreprises",
+            href: "/entreprises/fiscalite-et-comptabilite/impots-des-entreprises",
           },
           {
-            labelKey: "numerique.infrastructuresNumeriques.cloudGouvernemental",
-            href: "/numerique/infrastructures-numeriques/cloud-gouvernemental",
+            labelKey: "entreprises.fiscaliteComptabilite.tva",
+            href: "/entreprises/fiscalite-et-comptabilite/tva",
           },
           {
-            labelKey: "numerique.infrastructuresNumeriques.reseauxPublics",
-            href: "/numerique/infrastructures-numeriques/reseaux-publics",
+            labelKey: "entreprises.fiscaliteComptabilite.comptabilite",
+            href: "/entreprises/fiscalite-et-comptabilite/comptabilite",
           },
           {
-            labelKey: "numerique.infrastructuresNumeriques.hebergement",
-            href: "/numerique/infrastructures-numeriques/hebergement",
+            labelKey: "entreprises.fiscaliteComptabilite.paiementImpots",
+            href: "/entreprises/fiscalite-et-comptabilite/paiement-des-impots",
           },
         ],
       },
       {
-        labelKey: "numerique.servicesPublics.title",
-        href: "/numerique/services-publics",
+        labelKey: "entreprises.employeurs.title",
+        href: "/entreprises/employeurs",
         links: [
           {
-            labelKey: "numerique.servicesPublics.identiteNumerique",
-            href: "/numerique/services-publics/identite-numerique",
+            labelKey: "entreprises.employeurs.embaucherSalarie",
+            href: "/entreprises/employeurs/embaucher-un-salarie",
           },
           {
-            labelKey: "numerique.servicesPublics.interoperabilite",
-            href: "/numerique/services-publics/interoperabilite",
+            labelKey: "entreprises.employeurs.salaireCotisations",
+            href: "/entreprises/employeurs/salaire-et-cotisations",
           },
           {
-            labelKey: "numerique.servicesPublics.apiGouvernementales",
-            href: "/numerique/services-publics/api-gouvernementales",
+            labelKey: "entreprises.employeurs.contratsTravail",
+            href: "/entreprises/employeurs/contrats-de-travail",
           },
           {
-            labelKey: "numerique.servicesPublics.plateformesPubliques",
-            href: "/numerique/services-publics/plateformes-publiques",
+            labelKey: "entreprises.employeurs.santeSecuriteTravail",
+            href: "/entreprises/employeurs/sante-et-securite-au-travail",
           },
         ],
       },
       {
-        labelKey: "numerique.donneesTechnologies.title",
-        href: "/numerique/donnees-technologies",
+        labelKey: "entreprises.aidesFinancement.title",
+        href: "/entreprises/aides-et-financement",
         links: [
           {
-            labelKey: "numerique.donneesTechnologies.donneesPubliques",
-            href: "/numerique/donnees-technologies/donnees-publiques",
+            labelKey: "entreprises.aidesFinancement.aidesEntreprises",
+            href: "/entreprises/aides-et-financement/aides-aux-entreprises",
           },
           {
-            labelKey: "numerique.donneesTechnologies.intelligenceArtificielle",
-            href: "/numerique/donnees-technologies/intelligence-artificielle",
+            labelKey: "entreprises.aidesFinancement.financementsPublics",
+            href: "/entreprises/aides-et-financement/financements-publics",
           },
           {
-            labelKey: "numerique.donneesTechnologies.standardsNumeriques",
-            href: "/numerique/donnees-technologies/standards-numeriques",
+            labelKey: "entreprises.aidesFinancement.innovationRecherche",
+            href: "/entreprises/aides-et-financement/innovation-et-recherche",
           },
           {
-            labelKey: "numerique.donneesTechnologies.souveraineteTechnologique",
-            href: "/numerique/donnees-technologies/souverainete-technologique",
+            labelKey: "entreprises.aidesFinancement.marchesPublics",
+            href: "/entreprises/aides-et-financement/marches-publics",
           },
         ],
       },
@@ -656,102 +670,102 @@ export const primaryNavigation: ReadonlyArray<NavigationSection> = [
   },
   {
     type: "megaMenu",
-    labelKey: "territoires",
-    href: sectionPaths.territoires,
+    labelKey: "organisations",
+    href: sectionPaths.organisations,
     leader: {
-      titleKey: "territoires.title",
-      paragraphKey: "territoires.text",
+      titleKey: "organisations.title",
+      paragraphKey: "organisations.text",
       link: {
-        labelKey: "territoires.allLink",
-        href: sectionPaths.territoires,
+        labelKey: "organisations.allLink",
+        href: sectionPaths.organisations,
       },
     },
     primaryItems: [
       {
-        labelKey: "territoires.amenagement.title",
-        href: "/territoires/amenagement",
+        labelKey: "organisations.associations.title",
+        href: "/organisations/associations",
         links: [
           {
-            labelKey: "territoires.amenagement.amenagementTerritoire",
-            href: "/territoires/amenagement/amenagement-du-territoire",
+            labelKey: "organisations.associations.creerAssociation",
+            href: "/organisations/associations/creer-une-association",
           },
           {
-            labelKey: "territoires.amenagement.urbanisme",
-            href: "/territoires/amenagement/urbanisme",
+            labelKey: "organisations.associations.declarationRecepisse",
+            href: "/organisations/associations/declaration-et-recepisse",
           },
           {
-            labelKey: "territoires.amenagement.planification",
-            href: "/territoires/amenagement/planification-territoriale",
+            labelKey: "organisations.associations.gestionAdministration",
+            href: "/organisations/associations/gestion-et-administration",
           },
           {
-            labelKey: "territoires.amenagement.developpementRegional",
-            href: "/territoires/amenagement/developpement-regional",
+            labelKey: "organisations.associations.subventionsPubliques",
+            href: "/organisations/associations/subventions-publiques",
           },
         ],
       },
       {
-        labelKey: "territoires.eau.title",
-        href: "/territoires/eau",
+        labelKey: "organisations.fondations.title",
+        href: "/organisations/fondations",
         links: [
           {
-            labelKey: "territoires.eau.gestionEau",
-            href: "/territoires/eau/gestion-de-l-eau",
+            labelKey: "organisations.fondations.creerFondation",
+            href: "/organisations/fondations/creer-une-fondation",
           },
           {
-            labelKey: "territoires.eau.ressourcesHydriques",
-            href: "/territoires/eau/ressources-hydriques",
+            labelKey: "organisations.fondations.reconnaissanceUtilitePublique",
+            href: "/organisations/fondations/reconnaissance-utilite-publique",
           },
           {
-            labelKey: "territoires.eau.distribution",
-            href: "/territoires/eau/distribution",
+            labelKey: "organisations.fondations.gestionFondations",
+            href: "/organisations/fondations/gestion-des-fondations",
           },
           {
-            labelKey: "territoires.eau.preventionRisques",
-            href: "/territoires/eau/prevention-des-risques",
+            labelKey: "organisations.fondations.mecenatDons",
+            href: "/organisations/fondations/mecenat-et-dons",
           },
         ],
       },
       {
-        labelKey: "territoires.environnement.title",
-        href: "/territoires/environnement",
+        labelKey: "organisations.institutions.title",
+        href: "/organisations/institutions",
         links: [
           {
-            labelKey: "territoires.environnement.infrastructuresDurables",
-            href: "/territoires/environnement/infrastructures-durables",
+            labelKey: "organisations.institutions.institutionsPubliques",
+            href: "/organisations/institutions/institutions-publiques",
           },
           {
-            labelKey: "territoires.environnement.biodiversite",
-            href: "/territoires/environnement/biodiversite",
+            labelKey: "organisations.institutions.ordresProfessionnels",
+            href: "/organisations/institutions/ordres-professionnels",
           },
           {
-            labelKey: "territoires.environnement.transitionTerritoriale",
-            href: "/territoires/environnement/transition-territoriale",
+            labelKey: "organisations.institutions.syndicats",
+            href: "/organisations/institutions/syndicats",
           },
           {
-            labelKey: "territoires.environnement.performanceEnvironnementale",
-            href: "/territoires/environnement/performance-environnementale",
+            labelKey: "organisations.institutions.instancesConcertation",
+            href: "/organisations/institutions/instances-de-concertation",
           },
         ],
       },
       {
-        labelKey: "territoires.resilience.title",
-        href: "/territoires/resilience",
+        labelKey: "organisations.declarationsAgrements.title",
+        href: "/organisations/declarations-et-agrements",
         links: [
           {
-            labelKey: "territoires.resilience.resilienceTerritoriale",
-            href: "/territoires/resilience/resilience-territoriale",
+            labelKey: "organisations.declarationsAgrements.declarationsObligatoires",
+            href: "/organisations/declarations-et-agrements/declarations-obligatoires",
           },
           {
-            labelKey: "territoires.resilience.risquesNaturels",
-            href: "/territoires/resilience/risques-naturels",
+            labelKey: "organisations.declarationsAgrements.agrementsHabilitations",
+            href: "/organisations/declarations-et-agrements/agrements-et-habilitations",
           },
           {
-            labelKey: "territoires.resilience.continuiteServices",
-            href: "/territoires/resilience/continuite-des-services",
+            labelKey: "organisations.declarationsAgrements.labelsOfficiels",
+            href: "/organisations/declarations-et-agrements/labels-officiels",
           },
           {
-            labelKey: "territoires.resilience.infrastructuresCritiques",
-            href: "/territoires/resilience/infrastructures-critiques",
+            labelKey: "organisations.declarationsAgrements.fondsPublics",
+            href: "/organisations/declarations-et-agrements/access-aux-fonds-publics",
           },
         ],
       },
@@ -759,102 +773,102 @@ export const primaryNavigation: ReadonlyArray<NavigationSection> = [
   },
   {
     type: "megaMenu",
-    labelKey: "ministere",
-    href: sectionPaths.ministere,
+    labelKey: "international",
+    href: sectionPaths.international,
     leader: {
-      titleKey: "ministere.title",
-      paragraphKey: "ministere.text",
+      titleKey: "international.title",
+      paragraphKey: "international.text",
       link: {
-        labelKey: "ministere.allLink",
-        href: sectionPaths.ministere,
+        labelKey: "international.allLink",
+        href: sectionPaths.international,
       },
     },
     primaryItems: [
       {
-        labelKey: "ministere.leMinistere.title",
-        href: "/ministere/le-ministere",
+        labelKey: "international.etrangersImmigration.title",
+        href: "/international/etrangers-et-immigration",
         links: [
           {
-            labelKey: "ministere.leMinistere.missions",
-            href: "/ministere/le-ministere/missions",
+            labelKey: "international.etrangersImmigration.visas",
+            href: "/international/etrangers-et-immigration/visas",
           },
           {
-            labelKey: "ministere.leMinistere.organisation",
-            href: "/ministere/le-ministere/organisation",
+            labelKey: "international.etrangersImmigration.titresSejour",
+            href: "/international/etrangers-et-immigration/titres-de-sejour",
           },
           {
-            labelKey: "ministere.leMinistere.ministre",
-            href: "/ministere/le-ministere/ministre",
+            labelKey: "international.etrangersImmigration.nationalite",
+            href: "/international/etrangers-et-immigration/nationalite",
           },
           {
-            labelKey: "ministere.leMinistere.secretairesEtat",
-            href: "/ministere/le-ministere/secretaires-d-etat",
+            labelKey: "international.etrangersImmigration.asileProtection",
+            href: "/international/etrangers-et-immigration/asile-et-protection",
           },
         ],
       },
       {
-        labelKey: "ministere.administration.title",
-        href: "/ministere/administration",
+        labelKey: "international.astoriensEtranger.title",
+        href: "/international/astoriens-a-l-etranger",
         links: [
           {
-            labelKey: "ministere.administration.directions",
-            href: "/ministere/administration/directions",
+            labelKey: "international.astoriensEtranger.sInstallerEtranger",
+            href: "/international/astoriens-a-l-etranger/s-installer-a-l-etranger",
           },
           {
-            labelKey: "ministere.administration.services",
-            href: "/ministere/administration/services",
+            labelKey: "international.astoriensEtranger.travaillerEtranger",
+            href: "/international/astoriens-a-l-etranger/travailler-a-l-etranger",
           },
           {
-            labelKey: "ministere.administration.implantations",
-            href: "/ministere/administration/implantations",
+            labelKey: "international.astoriensEtranger.etudierEtranger",
+            href: "/international/astoriens-a-l-etranger/etudier-a-l-etranger",
           },
           {
-            labelKey: "ministere.administration.recrutement",
-            href: "/ministere/administration/recrutement",
+            labelKey: "international.astoriensEtranger.demenagerEtranger",
+            href: "/international/astoriens-a-l-etranger/demenager-a-l-etranger",
           },
         ],
       },
       {
-        labelKey: "ministere.politiquesPubliques.title",
-        href: "/ministere/politiques-publiques",
+        labelKey: "international.servicesConsulaires.title",
+        href: "/international/services-consulaires",
         links: [
           {
-            labelKey: "ministere.politiquesPubliques.strategie",
-            href: "/ministere/politiques-publiques/strategie",
+            labelKey: "international.servicesConsulaires.actesEtatCivil",
+            href: "/international/services-consulaires/actes-etat-civil",
           },
           {
-            labelKey: "ministere.politiquesPubliques.programmes",
-            href: "/ministere/politiques-publiques/programmes",
+            labelKey: "international.servicesConsulaires.documentsConsulaires",
+            href: "/international/services-consulaires/documents-consulaires",
           },
           {
-            labelKey: "ministere.politiquesPubliques.budgets",
-            href: "/ministere/politiques-publiques/budgets",
+            labelKey: "international.servicesConsulaires.assistanceRessortissants",
+            href: "/international/services-consulaires/assistance-aux-ressortissants",
           },
           {
-            labelKey: "ministere.politiquesPubliques.evaluation",
-            href: "/ministere/politiques-publiques/evaluation",
+            labelKey: "international.servicesConsulaires.electionsEtranger",
+            href: "/international/services-consulaires/elections-a-l-etranger",
           },
         ],
       },
       {
-        labelKey: "ministere.international.title",
-        href: "/ministere/international",
+        labelKey: "international.representationsDiplomatiques.title",
+        href: "/international/representations-diplomatiques",
         links: [
           {
-            labelKey: "ministere.international.organisationsInternationales",
-            href: "/ministere/international/organisations-internationales",
+            labelKey: "international.representationsDiplomatiques.ambassadesConsulats",
+            href: "/international/representations-diplomatiques/ambassades-et-consulats",
           },
           {
-            labelKey: "ministere.international.cooperation",
-            href: "/ministere/international/cooperation",
+            labelKey: "international.representationsDiplomatiques.trouverRepresentation",
+            href: "/international/representations-diplomatiques/trouver-une-representation",
           },
           {
-            labelKey: "ministere.international.affairesEuropeennes",
-            href: "/ministere/international/affaires-europeennes",
+            labelKey: "international.representationsDiplomatiques.accreditations",
+            href: "/international/representations-diplomatiques/accreditations",
           },
           {
-            labelKey: "ministere.international.representations",
-            href: "/ministere/international/representations",
+            labelKey: "international.representationsDiplomatiques.communauteAstorienne",
+            href: "/international/representations-diplomatiques/communaute-astorienne",
           },
         ],
       },

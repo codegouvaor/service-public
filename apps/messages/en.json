@@ -1,0 +1,470 @@
+{
+  "brand": {
+    "republicName": "Republic of Astoria"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "skipToFooter": "Skip to footer",
+    "backToTop": {
+      "ariaLabel": "Back to top"
+    }
+  },
+  "meta": {
+    "searchPlaceholder": "Search for a procedure, a public service, a form…",
+    "defaultTitle": "Service Public — Republic of Astoria",
+    "suffix": "Service Public",
+    "description": "The unified access point to the public services of the Republic of Astoria: procedures, rights, public services, everyday life, businesses, organisations and international services."
+  },
+  "header": {
+    "serviceTitle": "Service Public",
+    "serviceTagline": "The unified access point to Astorian public services",
+    "homeTitle": "Service Public portal of the Republic of Astoria — home",
+    "myGouv": "Sign in",
+    "signIn": "Sign in",
+    "accountLabel": "My account",
+    "logoutLink": "Sign out",
+    "account": {
+      "profile": "My profile",
+      "settings": "Account settings"
+    }
+  },
+  "home": {
+    "metaTitle": "Service Public — Republic of Astoria",
+    "hero": {
+      "kicker": "Public services",
+      "title": "Find the public service you need.",
+      "lead": "Procedures, rights, public services: access the services of the Republic of Astoria in a few clicks, without knowing how the State is organised.",
+      "searchLabel": "Search for a procedure, a public service, an administration",
+      "searchPlaceholder": "What are you looking for?",
+      "suggestionsLabel": "Popular searches:",
+      "suggestions": {
+        "identite": "Identity card",
+        "impots": "Taxes",
+        "logement": "Housing",
+        "entreprise": "Business"
+      }
+    },
+    "quickAccess": {
+      "kicker": "Quick access",
+      "title": "What would you like to do?",
+      "lead": "Four entry points to find exactly what you need.",
+      "items": {
+        "demarche": {
+          "title": "Complete a procedure",
+          "desc": "Start or continue an administrative procedure."
+        },
+        "service": {
+          "title": "Find a service",
+          "desc": "Search for a public service or an administration."
+        },
+        "droits": {
+          "title": "Understand my rights",
+          "desc": "Check your rights, obligations and appeals."
+        },
+        "administration": {
+          "title": "Find an administration",
+          "desc": "Identify the administration in charge."
+        }
+      }
+    },
+    "categories": {
+      "kicker": "Explore",
+      "title": "Explore public services",
+      "lead": "Browse public services by category, according to your need.",
+      "items": {
+        "demarches": {
+          "desc": "Complete an administrative procedure."
+        },
+        "droitsObligations": {
+          "desc": "Understand your rights, obligations and appeals."
+        },
+        "servicesPublics": {
+          "desc": "Find an administration, a service or an institution."
+        },
+        "vieQuotidienne": {
+          "desc": "Family, work, housing, mobility, health and solidarity."
+        },
+        "entreprises": {
+          "desc": "Create and manage a business."
+        },
+        "organisations": {
+          "desc": "Associations, foundations and other organisations."
+        },
+        "international": {
+          "desc": "Services for foreigners and Astorians abroad."
+        }
+      }
+    },
+    "admin": {
+      "kicker": "Directory",
+      "title": "Looking for an administration?",
+      "lead": "Search for an administration or browse the main types of administrations.",
+      "searchLabel": "Search for an administration",
+      "searchPlaceholder": "Name of an administration, a service…",
+      "linksLabel": "Browse by type:",
+      "links": {
+        "centrales": "Central administrations",
+        "territoriales": "Territorial administrations",
+        "etablissements": "Public institutions",
+        "locaux": "Local services"
+      }
+    },
+    "digital": {
+      "kicker": "Digital services",
+      "title": "The State's digital services",
+      "lead": "Access the main online services of the Republic of Astoria.",
+      "note": "Demonstration catalogue: it will soon be connected to the official register of digital services.",
+      "items": {
+        "mygouv": {
+          "title": "MyGouv",
+          "desc": "Your digital identity for your online procedures."
+        },
+        "demarches": {
+          "title": "Online procedures",
+          "desc": "Complete and track your procedures."
+        },
+        "documents": {
+          "title": "Official documents",
+          "desc": "Vital records, certificates and attestations."
+        },
+        "aides": {
+          "title": "Benefits and allowances",
+          "desc": "Find out which benefits you are entitled to."
+        },
+        "logement": {
+          "title": "Housing",
+          "desc": "Housing benefits and housing services."
+        },
+        "entreprises": {
+          "title": "Business area",
+          "desc": "Create and manage your business online."
+        }
+      }
+    },
+    "info": {
+      "kicker": "Useful information",
+      "title": "What changes for your procedures",
+      "lead": "A few pieces of information that are directly useful for accessing public services.",
+      "note": "General government communication is published on info.gouv.aor.",
+      "items": {
+        "nouvelleDemarche": {
+          "title": "New online procedure",
+          "desc": "Renewing your identity card is now possible online."
+        },
+        "procedure": {
+          "title": "Procedure updated",
+          "desc": "Vehicle registration has been simplified since 1 July."
+        },
+        "echeance": {
+          "title": "Upcoming deadline",
+          "desc": "Income tax returns close on 31 May."
+        },
+        "interruption": {
+          "title": "Service interruption",
+          "desc": "The housing online service will be unavailable on Saturday from 8am to 12pm."
+        }
+      }
+    }
+  },
+  "nav": {
+    "primary": {
+      "demarches": "Procedures",
+      "droitsObligations": "Rights & obligations",
+      "servicesPublics": "Public services",
+      "vieQuotidienne": "Everyday life",
+      "entreprises": "Businesses",
+      "organisations": "Organisations",
+      "international": "International"
+    },
+    "panel": {
+      "demarches": {
+        "title": "Procedures",
+        "text": "Find the administrative procedure that matches your situation and complete it online, by post or by appointment.",
+        "allLink": "All procedures",
+        "toutesLesDemarches": {
+          "title": "All procedures",
+          "renouvelerCarteIdentite": "Renew my identity card",
+          "changerAdresse": "Report a change of address",
+          "actesEtatCivil": "Request a vital record",
+          "immatriculerVehicule": "Register a vehicle"
+        },
+        "enLigne": {
+          "title": "Online procedures",
+          "effectuerEnLigne": "Complete a procedure online",
+          "creerCompteMyGouv": "Create a MyGouv account",
+          "suivreDemande": "Track a pending request",
+          "payerEnLigne": "Pay for a procedure online"
+        },
+        "formulaires": {
+          "title": "Forms and documents",
+          "rechercherFormulaire": "Search for a form",
+          "certificatsAttestations": "Certificates and attestations",
+          "modelesCourriers": "Letter templates",
+          "piecesJustificatives": "Supporting documents"
+        },
+        "rendezVous": {
+          "title": "Appointments",
+          "prendreRendezVous": "Book an appointment",
+          "annulerRendezVous": "Cancel an appointment",
+          "prefectures": "Prefectures and sub-prefectures",
+          "accueilServicesPublics": "Public service counters"
+        }
+      },
+      "droitsObligations": {
+        "title": "Rights & obligations",
+        "text": "Understand your rights, your obligations and the rules that apply in your dealings with the administration.",
+        "allLink": "All about rights and obligations",
+        "droits": {
+          "title": "Rights",
+          "droitsUsagers": "Users' rights",
+          "protectionDonnees": "Personal data protection",
+          "accesDocumentsAdministratifs": "Access to administrative documents",
+          "aidesPrestations": "Benefits and allowances"
+        },
+        "obligations": {
+          "title": "Obligations",
+          "obligationsUsagers": "Users' obligations",
+          "declarationsObligatoires": "Mandatory declarations",
+          "echeancesAdministratives": "Administrative deadlines",
+          "sanctions": "Penalties and non-compliance"
+        },
+        "reglesProcedures": {
+          "title": "Rules and procedures",
+          "reglesApplicables": "Applicable rules",
+          "proceduresAdministratives": "Administrative procedures",
+          "delaisReponse": "Administration response times",
+          "voiesSaisine": "Ways to refer a matter"
+        },
+        "recoursReclamations": {
+          "title": "Appeals and complaints",
+          "contesterDecision": "Challenge a decision",
+          "defenseurDesDroits": "The Rights Defender",
+          "deposerReclamation": "File a complaint",
+          "mediation": "Mediation and conciliation"
+        }
+      },
+      "servicesPublics": {
+        "title": "Public services",
+        "text": "Find the administration, service or institution that provides the service you need, and how to reach it.",
+        "allLink": "All public services",
+        "administrations": {
+          "title": "Administrations",
+          "administrationsCentrales": "Ministries and central administrations",
+          "servicesDeconcentres": "Deconcentrated services",
+          "collectivitesTerritoriales": "Local authorities",
+          "autoritesIndependantes": "Independent authorities"
+        },
+        "services": {
+          "title": "Public services",
+          "servicesProximite": "Local services",
+          "guichetsAccueil": "Help desks and welcome counters",
+          "horairesCoordonnees": "Opening hours and contact details",
+          "trouverService": "Find a public service"
+        },
+        "etablissementsPublics": {
+          "title": "Public institutions",
+          "etablissementsNationaux": "National public institutions",
+          "operateursEtat": "State operators",
+          "education": "Schools and education institutions",
+          "sante": "Hospitals and healthcare institutions"
+        },
+        "servicesNumeriques": {
+          "title": "Digital services",
+          "portailsTeleservices": "Portals and online services",
+          "identiteNumerique": "Digital identity",
+          "applicationsOfficielles": "Official applications",
+          "donneesOuvertes": "Open data"
+        }
+      },
+      "vieQuotidienne": {
+        "title": "Everyday life",
+        "text": "The public services that help you in everyday life, organised by life situations.",
+        "allLink": "All everyday services",
+        "familleEtatCivil": {
+          "title": "Family and civil status",
+          "mariagePacs": "Marriage, civil partnership and union",
+          "naissance": "Birth",
+          "etatCivil": "Vital records",
+          "succession": "Inheritance and succession"
+        },
+        "travailEtudes": {
+          "title": "Work and studies",
+          "emploi": "Employment and unemployment",
+          "formationProfessionnelle": "Vocational training",
+          "scolarite": "Schooling",
+          "enseignementSuperieur": "Higher education"
+        },
+        "logementMobilite": {
+          "title": "Housing and mobility",
+          "aidesLogement": "Housing benefits",
+          "locationPropriete": "Renting and owning",
+          "transportsDeplacements": "Transport and travel",
+          "permisConduire": "Driving licence"
+        },
+        "santeSolidarite": {
+          "title": "Health and solidarity",
+          "santeRemboursements": "Health and reimbursements",
+          "handicap": "Disability",
+          "personnesAgees": "Elderly people",
+          "solidarite": "Solidarity and hardship"
+        }
+      },
+      "entreprises": {
+        "title": "Businesses",
+        "text": "The services and procedures for businesses, from creation to day-to-day management.",
+        "allLink": "Everything for businesses",
+        "creationGestion": {
+          "title": "Create and manage a business",
+          "creerEntreprise": "Create a business",
+          "formesJuridiques": "Choose a legal form",
+          "formalitesImmatriculation": "Formalities and registration",
+          "cessationActivite": "Ceasing activity"
+        },
+        "fiscaliteComptabilite": {
+          "title": "Tax and accounting",
+          "impotsEntreprises": "Business taxes",
+          "tva": "Value added tax (VAT)",
+          "comptabilite": "Accounting",
+          "paiementImpots": "Paying taxes"
+        },
+        "employeurs": {
+          "title": "Employers",
+          "embaucherSalarie": "Hire an employee",
+          "salaireCotisations": "Wages and contributions",
+          "contratsTravail": "Employment contracts",
+          "santeSecuriteTravail": "Occupational health and safety"
+        },
+        "aidesFinancement": {
+          "title": "Grants and funding",
+          "aidesEntreprises": "Business grants",
+          "financementsPublics": "Public funding",
+          "innovationRecherche": "Innovation and research",
+          "marchesPublics": "Public procurement"
+        }
+      },
+      "organisations": {
+        "title": "Organisations",
+        "text": "The procedures and obligations of associations, foundations and institutions.",
+        "allLink": "All about organisations",
+        "associations": {
+          "title": "Associations",
+          "creerAssociation": "Create an association",
+          "declarationRecepisse": "Declaration and receipt",
+          "gestionAdministration": "Management and administration",
+          "subventionsPubliques": "Public grants"
+        },
+        "fondations": {
+          "title": "Foundations",
+          "creerFondation": "Create a foundation",
+          "reconnaissanceUtilitePublique": "Public interest recognition",
+          "gestionFondations": "Managing foundations",
+          "mecenatDons": "Sponsorship and donations"
+        },
+        "institutions": {
+          "title": "Institutions",
+          "institutionsPubliques": "Public institutions",
+          "ordresProfessionnels": "Professional orders",
+          "syndicats": "Trade unions and social partners",
+          "instancesConcertation": "Consultative bodies"
+        },
+        "declarationsAgrements": {
+          "title": "Declarations and approvals",
+          "declarationsObligatoires": "Mandatory declarations",
+          "agrementsHabilitations": "Approvals and accreditations",
+          "labelsOfficiels": "Official labels",
+          "fondsPublics": "Access to public funds"
+        }
+      },
+      "international": {
+        "title": "International",
+        "text": "The public services for foreigners in Astoria and for Astorians abroad.",
+        "allLink": "All about international",
+        "etrangersImmigration": {
+          "title": "Foreigners and immigration",
+          "visas": "Visas",
+          "titresSejour": "Residence permits",
+          "nationalite": "Nationality",
+          "asileProtection": "Asylum and protection"
+        },
+        "astoriensEtranger": {
+          "title": "Astorians abroad",
+          "sInstallerEtranger": "Settle abroad",
+          "travaillerEtranger": "Work abroad",
+          "etudierEtranger": "Study abroad",
+          "demenagerEtranger": "Move abroad"
+        },
+        "servicesConsulaires": {
+          "title": "Consular services",
+          "actesEtatCivil": "Vital records",
+          "documentsConsulaires": "Consular documents",
+          "assistanceRessortissants": "Assistance to nationals",
+          "electionsEtranger": "Elections abroad"
+        },
+        "representationsDiplomatiques": {
+          "title": "Diplomatic representations",
+          "ambassadesConsulats": "Embassies and consulates",
+          "trouverRepresentation": "Find a representation",
+          "accreditations": "Accreditations",
+          "communauteAstorienne": "Astorian community abroad"
+        }
+      }
+    }
+  },
+  "footer": {
+    "columns": {
+      "demarches": {
+        "title": "Procedures"
+      },
+      "droitsObligations": {
+        "title": "Rights & obligations"
+      },
+      "servicesPublics": {
+        "title": "Public services"
+      },
+      "vieQuotidienne": {
+        "title": "Everyday life"
+      },
+      "entreprises": {
+        "title": "Businesses"
+      },
+      "organisations": {
+        "title": "Organisations"
+      },
+      "international": {
+        "title": "International"
+      }
+    },
+    "contentDescription": "Service Public is the unified access point to the public services of the Republic of Astoria.",
+    "bottom": {
+      "contact": "Contact",
+      "planDuPortail": "Portal map",
+      "documentsOpposables": "Binding documents",
+      "privacy": "Privacy",
+      "cookies": "Cookie management",
+      "publications": "Official publications"
+    },
+    "license": "Unless otherwise stated, the content of this site is published under an open licence and may be reused under the conditions set out by {link}."
+  },
+  "stayInTouch": {
+    "newsletter": {
+      "title": "Subscribe to the newsletter",
+      "desc": "Every month, receive the essentials of Astorian public services: new online procedures, changes to your rights and portal news.",
+      "label": "Your email address",
+      "placeholder": "firstname.lastname@example.aor",
+      "submit": "Subscribe",
+      "success": "Your subscription is confirmed. Thank you!",
+      "hint": "You can unsubscribe at any time.",
+      "invalidEmail": "Please enter a valid email address."
+    },
+    "follow": {
+      "title": "Follow Service Public",
+      "items": {
+        "x": "Service Public on X (Twitter)",
+        "facebook": "Service Public on Facebook",
+        "linkedin": "Service Public on LinkedIn",
+        "instagram": "Service Public on Instagram",
+        "threads": "Service Public on Threads"
+      }
+    }
+  }
+}

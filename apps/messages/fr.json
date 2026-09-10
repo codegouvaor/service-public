@@ -1,0 +1,470 @@
+{
+  "brand": {
+    "republicName": "République d'Astoria"
+  },
+  "common": {
+    "skipToContent": "Aller au contenu",
+    "skipToFooter": "Aller au pied de page",
+    "backToTop": {
+      "ariaLabel": "Revenir en haut de page"
+    }
+  },
+  "meta": {
+    "searchPlaceholder": "Rechercher une démarche, un service public, un formulaire…",
+    "defaultTitle": "Service Public — République d'Astoria",
+    "suffix": "Service Public",
+    "description": "Le point d'accès unifié aux services publics de la République d'Astoria : démarches, droits, services publics, vie quotidienne, entreprises, organisations et international."
+  },
+  "header": {
+    "serviceTitle": "Service Public",
+    "serviceTagline": "Le point d'accès unifié aux services publics astoriens",
+    "homeTitle": "Accueil du portail Service Public de la République d'Astoria",
+    "myGouv": "Se connecter",
+    "signIn": "Se connecter",
+    "accountLabel": "Mon compte",
+    "logoutLink": "Se déconnecter",
+    "account": {
+      "profile": "Mon profil",
+      "settings": "Paramètres du compte"
+    }
+  },
+  "home": {
+    "metaTitle": "Service Public — République d'Astoria",
+    "hero": {
+      "kicker": "Services publics",
+      "title": "Trouvez le service public dont vous avez besoin.",
+      "lead": "Démarches, droits, services publics : accédez en quelques clics aux services de la République d'Astoria, sans connaître l'organisation de l'État.",
+      "searchLabel": "Rechercher une démarche, un service public, une administration",
+      "searchPlaceholder": "Que recherchez-vous ?",
+      "suggestionsLabel": "Recherches fréquentes :",
+      "suggestions": {
+        "identite": "Carte d'identité",
+        "impots": "Impôts",
+        "logement": "Logement",
+        "entreprise": "Entreprise"
+      }
+    },
+    "quickAccess": {
+      "kicker": "Accès rapides",
+      "title": "Que souhaitez-vous faire ?",
+      "lead": "Quatre entrées pour trouver directement ce que vous cherchez.",
+      "items": {
+        "demarche": {
+          "title": "Faire une démarche",
+          "desc": "Commencer ou poursuivre une démarche administrative."
+        },
+        "service": {
+          "title": "Trouver un service",
+          "desc": "Rechercher un service public ou une administration."
+        },
+        "droits": {
+          "title": "Comprendre mes droits",
+          "desc": "Consulter vos droits, obligations et recours."
+        },
+        "administration": {
+          "title": "Trouver une administration",
+          "desc": "Identifier l'administration compétente."
+        }
+      }
+    },
+    "categories": {
+      "kicker": "Explorer",
+      "title": "Explorer les services publics",
+      "lead": "Parcourez les services publics par grande catégorie, selon votre besoin.",
+      "items": {
+        "demarches": {
+          "desc": "Effectuer une démarche administrative."
+        },
+        "droitsObligations": {
+          "desc": "Comprendre vos droits, obligations et recours."
+        },
+        "servicesPublics": {
+          "desc": "Trouver une administration, un service ou un établissement."
+        },
+        "vieQuotidienne": {
+          "desc": "Famille, travail, logement, mobilité, santé et solidarité."
+        },
+        "entreprises": {
+          "desc": "Créer et gérer une entreprise."
+        },
+        "organisations": {
+          "desc": "Associations, fondations et autres organisations."
+        },
+        "international": {
+          "desc": "Services pour les étrangers et les Astoriens à l'étranger."
+        }
+      }
+    },
+    "admin": {
+      "kicker": "Annuaire",
+      "title": "Vous cherchez une administration ?",
+      "lead": "Recherchez une administration ou parcourez les principaux types d'administrations.",
+      "searchLabel": "Rechercher une administration",
+      "searchPlaceholder": "Nom d'une administration, d'un service…",
+      "linksLabel": "Parcourir par type :",
+      "links": {
+        "centrales": "Administrations centrales",
+        "territoriales": "Administrations territoriales",
+        "etablissements": "Établissements publics",
+        "locaux": "Services locaux"
+      }
+    },
+    "digital": {
+      "kicker": "Services numériques",
+      "title": "Les services numériques de l'État",
+      "lead": "Accédez aux principaux services en ligne de la République d'Astoria.",
+      "note": "Catalogue de démonstration : il sera prochainement connecté à l'annuaire officiel des services numériques.",
+      "items": {
+        "mygouv": {
+          "title": "MyGouv",
+          "desc": "Votre identité numérique pour vos démarches en ligne."
+        },
+        "demarches": {
+          "title": "Démarches en ligne",
+          "desc": "Effectuer et suivre vos démarches."
+        },
+        "documents": {
+          "title": "Documents officiels",
+          "desc": "Actes d'état civil, certificats et attestations."
+        },
+        "aides": {
+          "title": "Aides et prestations",
+          "desc": "Connaître les aides auxquelles vous avez droit."
+        },
+        "logement": {
+          "title": "Logement",
+          "desc": "Aides au logement et services de l'habitat."
+        },
+        "entreprises": {
+          "title": "Espace entreprises",
+          "desc": "Créer et gérer votre entreprise en ligne."
+        }
+      }
+    },
+    "info": {
+      "kicker": "Informations utiles",
+      "title": "Ce qui change pour vos démarches",
+      "lead": "Quelques informations directement utiles pour accéder aux services publics.",
+      "note": "La communication générale du gouvernement est publiée sur info.gouv.aor.",
+      "items": {
+        "nouvelleDemarche": {
+          "title": "Nouvelle démarche en ligne",
+          "desc": "Le renouvellement de la carte d'identité est désormais possible en ligne."
+        },
+        "procedure": {
+          "title": "Procédure mise à jour",
+          "desc": "L'immatriculation des véhicules a été simplifiée depuis le 1er juillet."
+        },
+        "echeance": {
+          "title": "Échéance à venir",
+          "desc": "La déclaration des revenus se termine le 31 mai."
+        },
+        "interruption": {
+          "title": "Interruption de service",
+          "desc": "Le téléservice logement sera indisponible samedi de 8h à 12h."
+        }
+      }
+    }
+  },
+  "nav": {
+    "primary": {
+      "demarches": "Démarches",
+      "droitsObligations": "Droits & obligations",
+      "servicesPublics": "Services publics",
+      "vieQuotidienne": "Vie quotidienne",
+      "entreprises": "Entreprises",
+      "organisations": "Organisations",
+      "international": "International"
+    },
+    "panel": {
+      "demarches": {
+        "title": "Démarches",
+        "text": "Trouvez la démarche administrative qui correspond à votre situation et réalisez-la en ligne, par courrier ou sur rendez-vous.",
+        "allLink": "Toutes les démarches",
+        "toutesLesDemarches": {
+          "title": "Toutes les démarches",
+          "renouvelerCarteIdentite": "Renouveler ma carte d'identité",
+          "changerAdresse": "Déclarer un changement d'adresse",
+          "actesEtatCivil": "Demander un acte d'état civil",
+          "immatriculerVehicule": "Immatriculer un véhicule"
+        },
+        "enLigne": {
+          "title": "Démarches en ligne",
+          "effectuerEnLigne": "Effectuer une démarche en ligne",
+          "creerCompteMyGouv": "Créer un compte MyGouv",
+          "suivreDemande": "Suivre une demande en cours",
+          "payerEnLigne": "Payer une démarche en ligne"
+        },
+        "formulaires": {
+          "title": "Formulaires et documents",
+          "rechercherFormulaire": "Rechercher un formulaire",
+          "certificatsAttestations": "Certificats et attestations",
+          "modelesCourriers": "Modèles de courriers",
+          "piecesJustificatives": "Pièces justificatives"
+        },
+        "rendezVous": {
+          "title": "Rendez-vous",
+          "prendreRendezVous": "Prendre rendez-vous",
+          "annulerRendezVous": "Annuler un rendez-vous",
+          "prefectures": "Préfectures et sous-préfectures",
+          "accueilServicesPublics": "Points d'accueil des services publics"
+        }
+      },
+      "droitsObligations": {
+        "title": "Droits & obligations",
+        "text": "Comprenez vos droits, vos obligations et les règles applicables dans vos relations avec l'administration.",
+        "allLink": "Tout sur les droits et obligations",
+        "droits": {
+          "title": "Droits",
+          "droitsUsagers": "Droits des usagers",
+          "protectionDonnees": "Protection des données personnelles",
+          "accesDocumentsAdministratifs": "Accès aux documents administratifs",
+          "aidesPrestations": "Aides et prestations"
+        },
+        "obligations": {
+          "title": "Obligations",
+          "obligationsUsagers": "Obligations des usagers",
+          "declarationsObligatoires": "Déclarations obligatoires",
+          "echeancesAdministratives": "Échéances administratives",
+          "sanctions": "Sanctions et manquements"
+        },
+        "reglesProcedures": {
+          "title": "Règles et procédures",
+          "reglesApplicables": "Règles applicables",
+          "proceduresAdministratives": "Procédures administratives",
+          "delaisReponse": "Délais de réponse de l'administration",
+          "voiesSaisine": "Voies de saisine"
+        },
+        "recoursReclamations": {
+          "title": "Recours et réclamations",
+          "contesterDecision": "Contester une décision",
+          "defenseurDesDroits": "Le Défenseur des droits",
+          "deposerReclamation": "Déposer une réclamation",
+          "mediation": "Médiation et conciliation"
+        }
+      },
+      "servicesPublics": {
+        "title": "Services publics",
+        "text": "Trouvez l'administration, le service ou l'établissement qui fournit le service dont vous avez besoin, et comment le joindre.",
+        "allLink": "Tous les services publics",
+        "administrations": {
+          "title": "Administrations",
+          "administrationsCentrales": "Ministères et administrations centrales",
+          "servicesDeconcentres": "Services déconcentrés",
+          "collectivitesTerritoriales": "Collectivités territoriales",
+          "autoritesIndependantes": "Autorités indépendantes"
+        },
+        "services": {
+          "title": "Services publics",
+          "servicesProximite": "Services de proximité",
+          "guichetsAccueil": "Guichets et accueils",
+          "horairesCoordonnees": "Horaires et coordonnées",
+          "trouverService": "Trouver un service public"
+        },
+        "etablissementsPublics": {
+          "title": "Établissements publics",
+          "etablissementsNationaux": "Établissements publics nationaux",
+          "operateursEtat": "Opérateurs de l'État",
+          "education": "Écoles et établissements d'enseignement",
+          "sante": "Hôpitaux et établissements de santé"
+        },
+        "servicesNumeriques": {
+          "title": "Services numériques",
+          "portailsTeleservices": "Portails et téléservices",
+          "identiteNumerique": "Identité numérique",
+          "applicationsOfficielles": "Applications officielles",
+          "donneesOuvertes": "Données ouvertes"
+        }
+      },
+      "vieQuotidienne": {
+        "title": "Vie quotidienne",
+        "text": "Les services publics utiles dans votre vie de tous les jours, organisés par situation de vie.",
+        "allLink": "Tous les services du quotidien",
+        "familleEtatCivil": {
+          "title": "Famille et état civil",
+          "mariagePacs": "Mariage, pacs et union",
+          "naissance": "Naissance",
+          "etatCivil": "Actes d'état civil",
+          "succession": "Successions"
+        },
+        "travailEtudes": {
+          "title": "Travail et études",
+          "emploi": "Emploi et chômage",
+          "formationProfessionnelle": "Formation professionnelle",
+          "scolarite": "Scolarité",
+          "enseignementSuperieur": "Enseignement supérieur"
+        },
+        "logementMobilite": {
+          "title": "Logement et mobilité",
+          "aidesLogement": "Aides au logement",
+          "locationPropriete": "Location et propriété",
+          "transportsDeplacements": "Transports et déplacements",
+          "permisConduire": "Permis de conduire"
+        },
+        "santeSolidarite": {
+          "title": "Santé et solidarité",
+          "santeRemboursements": "Santé et remboursements",
+          "handicap": "Handicap",
+          "personnesAgees": "Personnes âgées",
+          "solidarite": "Solidarité et précarité"
+        }
+      },
+      "entreprises": {
+        "title": "Entreprises",
+        "text": "Les services et démarches des entreprises, de la création à la gestion au quotidien.",
+        "allLink": "Tout pour les entreprises",
+        "creationGestion": {
+          "title": "Créer et gérer une entreprise",
+          "creerEntreprise": "Créer une entreprise",
+          "formesJuridiques": "Choisir une forme juridique",
+          "formalitesImmatriculation": "Formalités et immatriculation",
+          "cessationActivite": "Cessation d'activité"
+        },
+        "fiscaliteComptabilite": {
+          "title": "Fiscalité et comptabilité",
+          "impotsEntreprises": "Impôts des entreprises",
+          "tva": "Taxe sur la valeur ajoutée (TVA)",
+          "comptabilite": "Comptabilité",
+          "paiementImpots": "Paiement des impôts"
+        },
+        "employeurs": {
+          "title": "Employeurs",
+          "embaucherSalarie": "Embaucher un salarié",
+          "salaireCotisations": "Salaire et cotisations",
+          "contratsTravail": "Contrats de travail",
+          "santeSecuriteTravail": "Santé et sécurité au travail"
+        },
+        "aidesFinancement": {
+          "title": "Aides et financement",
+          "aidesEntreprises": "Aides aux entreprises",
+          "financementsPublics": "Financements publics",
+          "innovationRecherche": "Innovation et recherche",
+          "marchesPublics": "Marchés publics"
+        }
+      },
+      "organisations": {
+        "title": "Organisations",
+        "text": "Les démarches et obligations des associations, fondations et institutions.",
+        "allLink": "Tout sur les organisations",
+        "associations": {
+          "title": "Associations",
+          "creerAssociation": "Créer une association",
+          "declarationRecepisse": "Déclaration et récépissé",
+          "gestionAdministration": "Gestion et administration",
+          "subventionsPubliques": "Subventions publiques"
+        },
+        "fondations": {
+          "title": "Fondations",
+          "creerFondation": "Créer une fondation",
+          "reconnaissanceUtilitePublique": "Reconnaissance d'utilité publique",
+          "gestionFondations": "Gestion des fondations",
+          "mecenatDons": "Mécénat et dons"
+        },
+        "institutions": {
+          "title": "Institutions",
+          "institutionsPubliques": "Institutions publiques",
+          "ordresProfessionnels": "Ordres professionnels",
+          "syndicats": "Syndicats et partenaires sociaux",
+          "instancesConcertation": "Instances de concertation"
+        },
+        "declarationsAgrements": {
+          "title": "Déclarations et agréments",
+          "declarationsObligatoires": "Déclarations obligatoires",
+          "agrementsHabilitations": "Agréments et habilitations",
+          "labelsOfficiels": "Labels officiels",
+          "fondsPublics": "Accès aux fonds publics"
+        }
+      },
+      "international": {
+        "title": "International",
+        "text": "Les services publics pour les étrangers en Astoria et pour les Astoriens à l'étranger.",
+        "allLink": "Tout sur l'international",
+        "etrangersImmigration": {
+          "title": "Étrangers et immigration",
+          "visas": "Visas",
+          "titresSejour": "Titres de séjour",
+          "nationalite": "Nationalité",
+          "asileProtection": "Asile et protection"
+        },
+        "astoriensEtranger": {
+          "title": "Astoriens à l'étranger",
+          "sInstallerEtranger": "S'installer à l'étranger",
+          "travaillerEtranger": "Travailler à l'étranger",
+          "etudierEtranger": "Étudier à l'étranger",
+          "demenagerEtranger": "Déménager à l'étranger"
+        },
+        "servicesConsulaires": {
+          "title": "Services consulaires",
+          "actesEtatCivil": "Actes d'état civil",
+          "documentsConsulaires": "Documents consulaires",
+          "assistanceRessortissants": "Assistance aux ressortissants",
+          "electionsEtranger": "Élections à l'étranger"
+        },
+        "representationsDiplomatiques": {
+          "title": "Représentations diplomatiques",
+          "ambassadesConsulats": "Ambassades et consulats",
+          "trouverRepresentation": "Trouver une représentation",
+          "accreditations": "Accréditations",
+          "communauteAstorienne": "Communauté astorienne à l'étranger"
+        }
+      }
+    }
+  },
+  "footer": {
+    "columns": {
+      "demarches": {
+        "title": "Démarches"
+      },
+      "droitsObligations": {
+        "title": "Droits & obligations"
+      },
+      "servicesPublics": {
+        "title": "Services publics"
+      },
+      "vieQuotidienne": {
+        "title": "Vie quotidienne"
+      },
+      "entreprises": {
+        "title": "Entreprises"
+      },
+      "organisations": {
+        "title": "Organisations"
+      },
+      "international": {
+        "title": "International"
+      }
+    },
+    "contentDescription": "Service Public est le point d'accès unifié aux services publics de la République d'Astoria.",
+    "bottom": {
+      "contact": "Contact",
+      "planDuPortail": "Plan du portail",
+      "documentsOpposables": "Documents opposables",
+      "privacy": "Confidentialité",
+      "cookies": "Gestion des cookies",
+      "publications": "Publications officielles"
+    },
+    "license": "Sauf mention contraire, tous les contenus de ce site sont disponibles sous <link>licence APSL</link>."
+  },
+  "stayInTouch": {
+    "newsletter": {
+      "title": "Abonnez-vous à la lettre d'information",
+      "desc": "Recevez chaque mois l'essentiel des services publics astoriens : nouvelles démarches en ligne, évolutions de vos droits et actualités du portail.",
+      "label": "Votre adresse e-mail",
+      "placeholder": "prenom.nom@exemple.aor",
+      "submit": "S'abonner",
+      "success": "Votre inscription est confirmée. Merci !",
+      "hint": "Vous pouvez vous désinscrire à tout moment.",
+      "invalidEmail": "Veuillez saisir une adresse e-mail valide."
+    },
+    "follow": {
+      "title": "Suivez Service Public",
+      "items": {
+        "x": "Service Public sur X (Twitter)",
+        "facebook": "Service Public sur Facebook",
+        "linkedin": "Service Public sur LinkedIn",
+        "instagram": "Service Public sur Instagram",
+        "threads": "Service Public sur Threads"
+      }
+    }
+  }
+}

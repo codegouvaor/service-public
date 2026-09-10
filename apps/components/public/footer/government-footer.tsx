@@ -9,7 +9,7 @@ import { StayInTouch } from "./stay-in-touch";
 const HOME_PATH = "/";
 
 /** Official portal domains of the Republic of Astoria, shown in the footer. */
-const OFFICIAL_DOMAINS: string[] = ["info.gouv.aor", "code.gouv.aor", "service-public.gouv.aor", "data.gouv.aor"];
+const OFFICIAL_DOMAINS: string[] = ["info.gouv.aor", "code.gouv.aor", "data.gouv.aor"];
 
 /**
  * Government Footer of the Astoria portal — secondary navigation zone of the

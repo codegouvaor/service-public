@@ -8,12 +8,12 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	redisclient "github.com/codegouvaor/infrastructure/server/internal/redis"
-	"github.com/codegouvaor/infrastructure/server/src/config"
-	"github.com/codegouvaor/infrastructure/server/src/interfaces"
-	"github.com/codegouvaor/infrastructure/server/src/middleware"
-	"github.com/codegouvaor/infrastructure/server/src/services"
-	"github.com/codegouvaor/infrastructure/server/src/utils"
+	redisclient "github.com/codegouvaor/service-public/server/internal/redis"
+	"github.com/codegouvaor/service-public/server/src/config"
+	"github.com/codegouvaor/service-public/server/src/interfaces"
+	"github.com/codegouvaor/service-public/server/src/middleware"
+	"github.com/codegouvaor/service-public/server/src/services"
+	"github.com/codegouvaor/service-public/server/src/utils"
 )
 
 type Dependencies struct {

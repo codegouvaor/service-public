@@ -13,11 +13,14 @@ export function PortalSearchBar({
   label,
   defaultValue,
   placeholder,
+  big = true,
 }: {
   label: string;
   defaultValue?: string;
   /** Overrides the ADS default placeholder (translated “Search”). */
   placeholder?: string;
+  /** Large hero variant (default) or the compact inline variant. */
+  big?: boolean;
 }) {
   const router = useRouter();
 
@@ -28,7 +31,7 @@ export function PortalSearchBar({
 
   return (
     <SearchBar
-      big
+      big={big}
       label={label}
       defaultValue={defaultValue}
       renderInput={(params) => (

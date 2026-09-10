@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/codegouvaor/infrastructure/server/src/models"
-	"github.com/codegouvaor/infrastructure/server/src/utils"
+	"github.com/codegouvaor/service-public/server/src/models"
+	"github.com/codegouvaor/service-public/server/src/utils"
 )
 
 func (h *apiHandler) listSchedules(c *gin.Context) {

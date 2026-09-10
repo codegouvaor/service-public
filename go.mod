@@ -1,4 +1,4 @@
-module github.com/codegouvaor/infrastructure
+module github.com/codegouvaor/service-public
 
 go 1.25.5
 
