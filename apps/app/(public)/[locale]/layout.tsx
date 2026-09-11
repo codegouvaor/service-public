@@ -41,9 +41,9 @@ export async function generateMetadata({
           url: "/astoria-gouv.png",
           type: "image/svg+xml",
         },
-        { url: "/icon-light-32x32.png" },
+        { url: "/astoria-gouv.png" },
       ],
-      apple: "/apple-icon.png",
+      apple: "/astoria-gouv.png",
     },
   };
 }
